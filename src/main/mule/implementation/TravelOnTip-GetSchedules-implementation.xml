@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+<sub-flow name="TravelOnTip-GetSchedules-implementationSub_Flow" doc:id="675fa43f-ef59-47ef-8d06-23ff4d7af127" >
+		<ee:transform doc:name="Transform Message" doc:id="f9a03c98-1adc-4a73-bbe2-0fe863ce916e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+[{"companyName": "TravelOnTip",
+	"depatureDateTime": "2019-14-20T16:28:500Z",
+  "fromLocation": "KLG-MY",
+  "toLOcation": "BEN-SG",
+  "availableSeats": 50
+  },
+	{"companyName": "TravelOnTip",
+	"depatureDateTime": "2019-14-20T16:28:500Z",
+  "fromLocation": "BEN-SG",
+  "toLOcation": "KLG-MY",
+  "availableSeats": 50
+  }
+]
+]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="cb0d01a5-ede4-4ff7-bc4b-2e6bb4224903" message="output of an TravelOnTip GetSchedule-implementation "/>
+
+	</sub-flow>
+</mule>
